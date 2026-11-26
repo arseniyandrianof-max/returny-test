@@ -1,7 +1,7 @@
 # returny для Windows
 
-Открытый стенд для проверки загрузки настольного приложения. Тестовый заказ стоит 0 ₽. Пройдите подтверждение в браузере, скачайте ZIP, распакуйте его целиком и откройте `returny.cmd` на Windows x64. Подключите iPhone и нажмите «Проверить USB». При первом подключении returny подскажет, как установить компоненты Apple.
+Открытый стенд для проверки загрузки настольного приложения. Тестовый заказ стоит 0 ₽. Пройдите подтверждение в браузере, скачайте ZIP, распакуйте его целиком и откройте `returny.cmd` на Windows x64. Подключите iPhone и нажмите «Проверить USB». Если нужны компоненты Apple, подтвердите их установку в returny.
 
-[Открыть тестовый миниапп](https://arseniyandrianof-max.github.io/returny-test/mini.html) · [Windows-сборка 1.1.1](https://github.com/arseniyandrianof-max/returny-test/releases/tag/v1.1.1)
+[Открыть тестовый миниапп](https://arseniyandrianof-max.github.io/returny-test/mini.html) · [Windows-сборка 1.1.2](https://github.com/arseniyandrianof-max/returny-test/releases/tag/v1.1.2)
 
 Статические страницы работают на GitHub Pages. Этот стенд не принимает деньги или данные карт. Для восстановления на iPhone используется настольное приложение и собственный аккаунт покупок Apple.
