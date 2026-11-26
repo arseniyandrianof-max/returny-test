@@ -1,0 +1,6 @@
+.stage-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;margin:22px 0}
+.stage-guide{margin-top:38px}
+.stage-guide h2{margin-bottom:12px}
+.stage-digest{margin-top:8px;color:var(--muted);font-size:.9rem}
+.stage-digest summary{cursor:pointer}
+.stage-digest code{display:block;overflow-wrap:anywhere;padding-top:6px;user-select:all}
