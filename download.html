@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#f9f8f5">
-  <title>Скачать returny для Windows · returny</title>
+  <title>Скачать returny для Windows и Mac · returny</title>
   <link rel="icon" href="assets/returny.png"><link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/stage.css"><script defer src="assets/stage.js"></script>
 </head>
@@ -17,17 +17,31 @@
     <a class="wordmark" href="index.html" aria-label="returny, главная"><img src="assets/returny.png" width="34" height="34" alt="">returny</a>
     <nav aria-label="Навигация"><a class="order-link" href="mini.html">Миниапп</a></nav>
   </header>
-  <main class="single" id="main">
-  <h1>Сборка готова</h1>
-  <section class="panel stack" aria-label="Загрузка для Windows">
-    <h2>returny для Windows x64</h2>
-    <p class="muted">Версия 1.1.2 · ZIP · Тест за 0 ₽</p>
-    <a id="windows" class="button primary" rel="noreferrer" href="https://github.com/arseniyandrianof-max/returny-test/releases/download/v1.1.2/returny-1.1.2-Windows-x64.zip">Скачать для Windows</a>
-    <p>Распакуйте архив целиком и откройте <code>returny.cmd</code>. Подключите iPhone кабелем и нажмите «Проверить USB».</p>
-    <details class="stage-digest"><summary>SHA-256 архива</summary><code>6bf2ff0695afb220405b9391f212456f1eb8431c7add143b8c4a9b922dc41c5d</code></details>
-  </section>
+  <main class="single download-main" id="main">
+  <h1>Скачать returny</h1>
+  <div class="download-platforms">
+    <section class="panel stack" aria-labelledby="windows-heading">
+      <h2 id="windows-heading">Windows</h2>
+      <p class="muted">Версия 1.1.2 · x64 · ZIP</p>
+      <a id="windows" class="button primary" rel="noreferrer" href="https://github.com/arseniyandrianof-max/returny-test/releases/download/v1.1.2/returny-1.1.2-Windows-x64.zip">Скачать для Windows</a>
+      <p>Распакуйте ZIP целиком и откройте <code>returny.cmd</code>. Подключите iPhone кабелем и нажмите «Проверить USB».</p>
+      <details class="stage-digest"><summary>SHA-256 архива</summary><code>6bf2ff0695afb220405b9391f212456f1eb8431c7add143b8c4a9b922dc41c5d</code></details>
+    </section>
+    <section class="panel stack" aria-labelledby="mac-heading">
+      <h2 id="mac-heading">Mac</h2>
+      <p class="muted">Версия 1.1.0 · DMG</p>
+      <a id="mac-arm" class="button primary" rel="noreferrer" href="https://github.com/arseniyandrianof-max/returny-test/releases/download/v1.1.0/returny-1.1.0-Apple-Silicon.dmg">Скачать для Mac с чипом M-серии</a>
+      <a id="mac-intel" class="button outline" rel="noreferrer" href="https://github.com/arseniyandrianof-max/returny-test/releases/download/v1.1.0/returny-1.1.0-Intel.dmg">Скачать для Mac с Intel</a>
+      <p>Посмотрите тип чипа в меню Apple → «Об этом Mac». Откройте DMG и перетащите returny в «Программы».</p>
+      <p class="fine muted">Тестовая сборка без нотарификации Apple. macOS может ограничить первый запуск.</p>
+      <details class="stage-digest"><summary>SHA-256 образов</summary><dl>
+        <dt>Apple Silicon (M-серия)</dt><dd><code>d70d1c0396a8c067ffe5855222a6bda7c286a40678bdd7c5a90eb3071b0abf10</code></dd>
+        <dt>Intel</dt><dd><code>8442f166fab2072141cd1bae584e467de2ec1c81be050837b41460a5092439e2</code></dd>
+      </dl></details>
+    </section>
+  </div>
   <section class="stage-guide stack" id="handoff" hidden><h2>Открыть на компьютере</h2>
-    <p>Перешлите себе ссылку на эту сборку.</p>
+    <p>Перешлите себе ссылку на страницу загрузки.</p>
     <label class="sr-only" for="share-link">Ссылка для компьютера</label><input id="share-link" readonly>
     <button id="copy" class="button outline" type="button">Скопировать ссылку</button>
     <p id="copied" role="status"></p>

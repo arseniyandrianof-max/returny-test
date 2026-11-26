@@ -4,3 +4,8 @@
 .stage-digest{margin-top:8px;color:var(--muted);font-size:.9rem}
 .stage-digest summary{cursor:pointer}
 .stage-digest code{display:block;overflow-wrap:anywhere;padding-top:6px;user-select:all}
+.download-main{width:min(100% - 36px,900px)}
+.download-platforms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;align-items:start}
+.download-platforms .panel{min-width:0}
+.download-main #handoff{max-width:540px}
+.stage-digest dd{margin:0 0 8px}
