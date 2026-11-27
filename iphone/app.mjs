@@ -8,8 +8,16 @@ const notice = document.querySelector('#notice');
 const panel = document.querySelector('#panel');
 const iconKeys = new Set(['sber', 'tbank', 'alfa', 'vk', 'max', 'avito', 'mail', 'yandex-pay']);
 const featured = ['sber', 'tbank', 'vk', 'max'];
-let catalog;
+const emptyCatalog = {groups: [], regions: {ru: {}, es: {}}};
+let catalog = emptyCatalog;
 let controller;
+let loadingCatalog = true;
+let submitted = false;
+const initialParams = new URLSearchParams(location.search);
+let initialGroup = initialParams.get('app');
+const catalogNotice = node('div', '', 'notice');
+catalogNotice.setAttribute('role', 'status');
+notice.before(catalogNotice);
 
 function node(tag, text, className) {
   const item = document.createElement(tag);
@@ -71,6 +79,7 @@ function details(label, className) {
 }
 
 function showHome() {
+  if (!catalog.groups.length) return;
   const quick = featured.map(key => catalog.groups.find(group => group.key === key)).filter(Boolean);
   const other = catalog.groups.filter(group => !quick.includes(group));
   const heading = node('h2', 'Быстрый выбор', 'section-title');
@@ -96,6 +105,7 @@ function purchaseSteps() {
 
 function resultCard(title, group) {
   panel.append(button('‹ К каталогу', 'back', () => {
+    initialGroup = null;
     query.value = '';
     render();
     query.focus();
@@ -194,16 +204,20 @@ function showSearch(result, freshApps) {
 async function render({live = false, focus = false} = {}) {
   controller?.abort();
   controller = undefined;
-  if (!catalog) return;
+  submitted = live;
   const result = resolveInput(query.value, region.value, catalog);
   panel.replaceChildren();
   notice.textContent = '';
   let freshApps;
-  if (live && ['app', 'query', 'matches'].includes(result.kind)) {
+  if (live && !loadingCatalog && ['app', 'query', 'matches'].includes(result.kind)) {
     const active = new AbortController();
     controller = active;
     const timer = setTimeout(() => active.abort(), 8000);
     notice.textContent = 'Проверяем App Store…';
+    if (catalog === emptyCatalog) {
+      if (result.direct) panel.append(link('Проверить в App Store', result.direct.url, 'primary'));
+      else if (result.search) panel.append(link('Поиск в App Store', result.search.url, 'primary'));
+    }
     try {
       const lookup = result.kind !== 'app' ? {term: query.value.trim()} :
         {ids: result.direct ? [result.direct.id] : result.releases.map(release => release.id)};
@@ -217,6 +231,7 @@ async function render({live = false, focus = false} = {}) {
       clearTimeout(timer);
       if (controller === active) controller = undefined;
     }
+    panel.replaceChildren();
   }
   switch (result.kind) {
     case 'empty':
@@ -248,42 +263,59 @@ async function render({live = false, focus = false} = {}) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+  initialGroup = null;
   query.blur();
   render({live: true, focus: true});
 });
-region.addEventListener('change', () => render({live: true, focus: Boolean(query.value.trim())}));
+region.addEventListener('change', () => {
+  if (submitted) render({live: true, focus: Boolean(query.value.trim())});
+});
 query.addEventListener('input', () => {
+  initialGroup = null;
+  submitted = false;
   controller?.abort();
   controller = undefined;
   notice.textContent = '';
-  if (!catalog) return;
   panel.replaceChildren();
   showHome();
 });
 
 async function load() {
-  panel.replaceChildren();
-  notice.textContent = 'Загружаем каталог…';
+  loadingCatalog = true;
+  catalogNotice.textContent = 'Загружаем каталог…';
   const loading = new AbortController();
   const timer = setTimeout(() => loading.abort(), 8000);
   try {
     const response = await fetch('./catalog.json', {cache: 'no-cache', signal: loading.signal});
     if (!response.ok) throw new Error('catalog');
-    catalog = await response.json();
-    const params = new URLSearchParams(location.search);
-    if (['es', 'ru'].includes(params.get('region'))) region.value = params.get('region');
-    const key = params.get('app');
-    const selected = catalog.groups.find(group => group.key === key);
-    const initial = selected?.title ?? (/^[1-9]\d{0,17}$/.test(key ?? '') ? key : '');
-    if (initial) query.value = initial;
-    render({live: Boolean(initial)});
+    const data = await response.json();
+    if (!Array.isArray(data?.groups) || !data.regions?.ru || !data.regions?.es) throw new Error('catalog');
+    catalog = data;
+    catalogNotice.replaceChildren();
+    const selected = catalog.groups.find(group => group.key === initialGroup);
+    if (selected) {
+      query.value = selected.title;
+      submitted = true;
+    }
+    initialGroup = null;
   } catch {
-    catalog = undefined;
-    notice.textContent = 'Не удалось загрузить каталог returny. Проверьте подключение.';
-    panel.replaceChildren(button('Повторить', 'retry', load));
+    catalogNotice.replaceChildren('Каталог returny недоступен. ', button('Повторить', 'retry', load));
   } finally {
+    loadingCatalog = false;
     clearTimeout(timer);
+  }
+  if (submitted) render({live: true});
+  else {
+    panel.replaceChildren();
+    showHome();
   }
 }
 
+if (['es', 'ru'].includes(initialParams.get('region'))) region.value = initialParams.get('region');
+notice.textContent = '';
+if (/^[1-9]\d{0,17}$/.test(initialGroup ?? '')) {
+  query.value = initialGroup;
+  initialGroup = null;
+  render({live: true});
+}
 load();

@@ -1,5 +1,5 @@
 const productLink = /^https:\/\/(?:apps|itunes)\.apple\.com\/(?:[a-z]{2}\/)?app\/(?:(?<slug>[^/?#\s]+)\/)?id(?<id>[1-9]\d{0,17})\/?(?:\?[^#\s]*)?(?:#[^\s]*)?$/i;
-const looksLikeLink = /^(?:[a-z][a-z\d+.-]*:|\/|www\.|(?:apps|itunes)\.apple\.com\b|(?:[a-z\d-]+\.)+[a-z]{2,}[/?#])/i;
+const looksLikeLink = /^(?:(?:https?|javascript|data|file):|[a-z][a-z\d+.-]*:(?!\s)|\/|www\.|(?:apps|itunes)\.apple\.com\b|(?:[a-z\d-]+\.)+[a-z]{2,}[/?#])/i;
 const publisherLinks = new Map([
   ["fortnite", {
     url: "https://www.fortnite.com/mobile/ios?lang=ru",
@@ -23,7 +23,7 @@ function idFromAppleUrl(value) {
 }
 
 function normalizeName(text = "") {
-  return text.normalize("NFKC").toLowerCase().replaceAll("ё", "е")
+  return text.normalize("NFKC").toLowerCase().replace(/ё/g, "е")
     .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 }
 
@@ -53,7 +53,7 @@ function appleUrl(id, country) {
 
 export function resolveInput(query, country, catalog) {
   if (typeof query !== "string" || typeof country !== "string" || !/^[a-z]{2}$/.test(country) ||
-      !Object.hasOwn(catalog.regions, country)) return { kind: "invalid" };
+      !Object.prototype.hasOwnProperty.call(catalog.regions, country)) return { kind: "invalid" };
   if (query.length > 2048) return { kind: "invalid" };
   const value = query.trim();
   if (!value) return { kind: "empty" };

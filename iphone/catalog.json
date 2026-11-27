@@ -241,17 +241,17 @@
     {
       "key": "fortnite",
       "title": "Fortnite",
-      "aliases": "Фортнайт Epic Games",
+      "aliases": "Фортнайт",
       "releases": [
         {
           "id": "6483539426",
           "title": "Fortnite",
-          "aliases": "Фортнайт Epic Games"
+          "aliases": "Фортнайт"
         },
         {
           "id": "1261357853",
           "title": "Fortnite (2018)",
-          "aliases": "Фортнайт"
+          "aliases": "Фортнайт 2018"
         }
       ],
       "publisher": {
