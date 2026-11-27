@@ -37,6 +37,7 @@ function listedReleases(group, releases, country, catalog) {
     }
   }
   const result = { kind: "app", group, releases, available };
+  if (releases.length === 1) result.direct = {id: releases[0].id, url: appleUrl(releases[0].id, country)};
   const trusted = publisherLinks.get(group.key);
   const publisher = group.publisher;
   if (trusted && publisher?.url === trusted.url && trusted.regions.includes(country) &&

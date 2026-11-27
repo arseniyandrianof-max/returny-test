@@ -145,7 +145,8 @@ function showApp(result, fresh) {
     storeRoutes(card, available);
   } else {
     card.append(node('p', 'В публичном каталоге App Store для ' + country + ' карточки для iPhone не нашлось.'));
-    card.append(node('p', 'Проверьте свои покупки. Если там тоже нет кнопки загрузки, у returny нет прямой ссылки на установку из App Store.'));
+    if (direct) card.append(link('Проверить этот выпуск в App Store', direct.url, 'primary'));
+    card.append(node('p', 'Проверьте свои покупки. Если Apple предлагает повторную загрузку, рядом с приложением будет значок облака.'));
   }
   if (fresh) {
     card.append(node('p', 'Проверено сейчас · App Store для ' + country, 'caption'));
@@ -164,7 +165,11 @@ function showApp(result, fresh) {
   if (releases.length > 1) {
     const names = details('Названия для поиска в покупках', 'history');
     const list = node('ul', '', 'names');
-    for (const release of releases) list.append(node('li', release.title));
+    for (const release of releases) {
+      const item = node('li');
+      item.append(link(release.title, '?app=' + encodeURIComponent(release.id) + '&region=' + region.value, 'footlink'));
+      list.append(item);
+    }
     names.append(list);
     card.append(names);
   }
@@ -265,10 +270,13 @@ async function load() {
     const response = await fetch('./catalog.json', {cache: 'no-cache', signal: loading.signal});
     if (!response.ok) throw new Error('catalog');
     catalog = await response.json();
-    const key = new URLSearchParams(location.search).get('app');
+    const params = new URLSearchParams(location.search);
+    if (['es', 'ru'].includes(params.get('region'))) region.value = params.get('region');
+    const key = params.get('app');
     const selected = catalog.groups.find(group => group.key === key);
-    if (selected) query.value = selected.title;
-    render({live: Boolean(selected)});
+    const initial = selected?.title ?? (/^[1-9]\d{0,17}$/.test(key ?? '') ? key : '');
+    if (initial) query.value = initial;
+    render({live: Boolean(initial)});
   } catch {
     catalog = undefined;
     notice.textContent = 'Не удалось загрузить каталог returny. Проверьте подключение.';
