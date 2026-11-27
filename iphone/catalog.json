@@ -257,7 +257,7 @@
       "publisher": {
         "label": "Версия из Epic Games Store",
         "url": "https://www.fortnite.com/mobile/ios?lang=ru",
-        "condition": "Нужно находиться в ЕС и использовать Apple Account с регионом ЕС. Для игры нужен iPhone 11 или новее с 4 ГБ памяти и iOS 17.6.1 или новее. iPhone SE 2-го поколения не поддерживается.",
+        "condition": "Нужно находиться в ЕС и использовать Apple Account с регионом ЕС. Для игры нужен iPhone 11 или новее, от 4 ГБ оперативной памяти и iOS 17.6.1 или новее. iPhone SE 2-го поколения не поддерживается.",
         "regions": [
           "es"
         ]
