@@ -1,0 +1,279 @@
+{
+  "groups": [
+    {
+      "key": "sber",
+      "title": "Сбер",
+      "aliases": "Сбербанк Sber Sberbank Онлайн Online",
+      "releases": [
+        {
+          "id": "6769745089",
+          "title": "Семейный Онлайн",
+          "aliases": "Family Online"
+        },
+        {
+          "id": "6749261529",
+          "title": "Финансы Онлайн",
+          "aliases": "Finance Online Financе Online"
+        },
+        {
+          "id": "6742457200",
+          "title": "Активы Онлайн",
+          "aliases": "Assets Online"
+        },
+        {
+          "id": "6636482626",
+          "title": "Бюджет Онлайн",
+          "aliases": "Budget Online Бюджет Oнлайн"
+        },
+        {
+          "id": "6478108541",
+          "title": "Умный Онлайн",
+          "aliases": "Smart Online"
+        },
+        {
+          "id": "6473541769",
+          "title": "Учёт Онлайн",
+          "aliases": "Accounting Online"
+        },
+        {
+          "id": "6443619924",
+          "title": "СБОЛ · октябрь 2022",
+          "aliases": "SBOL СБOЛ"
+        },
+        {
+          "id": "1631810724",
+          "title": "СБОЛ · август 2022",
+          "aliases": "SBOL"
+        },
+        {
+          "id": "492224193",
+          "title": "СберБанк Онлайн",
+          "aliases": ""
+        }
+      ]
+    },
+    {
+      "key": "max",
+      "title": "MAX",
+      "aliases": "Макс",
+      "releases": [
+        {
+          "id": "6739530834",
+          "title": "MAX",
+          "aliases": "Макс"
+        }
+      ]
+    },
+    {
+      "key": "vk",
+      "title": "ВКонтакте",
+      "aliases": "VK ВК VKontakte",
+      "releases": [
+        {
+          "id": "564177498",
+          "title": "ВКонтакте",
+          "aliases": "VK"
+        }
+      ]
+    },
+    {
+      "key": "alfa",
+      "title": "Альфа-Банк",
+      "aliases": "Альфа Банк Alfa Bank Alfabank",
+      "releases": [
+        {
+          "id": "6755534634",
+          "title": "Альфото",
+          "aliases": "Alfoto"
+        },
+        {
+          "id": "6739035108",
+          "title": "Делим вместе",
+          "aliases": ""
+        },
+        {
+          "id": "353127685",
+          "title": "Альфа-Банк",
+          "aliases": "Альфа-Мобайл"
+        }
+      ]
+    },
+    {
+      "key": "tbank",
+      "title": "Т-Банк",
+      "aliases": "Т Банк Тинькофф T-Bank Tinkoff",
+      "releases": [
+        {
+          "id": "6760469916",
+          "title": "Drive Transit",
+          "aliases": ""
+        },
+        {
+          "id": "6748913132",
+          "title": "EasyCatch Sounder",
+          "aliases": ""
+        },
+        {
+          "id": "6743628763",
+          "title": "Freelance Case",
+          "aliases": "T Case"
+        },
+        {
+          "id": "6451046063",
+          "title": "DocStorage",
+          "aliases": ""
+        },
+        {
+          "id": "455652438",
+          "title": "Тинькофф",
+          "aliases": "Tinkoff"
+        }
+      ]
+    },
+    {
+      "key": "sovcombank",
+      "title": "Совкомбанк",
+      "aliases": "Халва Sovcombank Halva",
+      "releases": [
+        {
+          "id": "1208055056",
+          "title": "Халва — Совкомбанк",
+          "aliases": "Халва Совкомбанк"
+        }
+      ]
+    },
+    {
+      "key": "vtb",
+      "title": "ВТБ",
+      "aliases": "VTB",
+      "releases": [
+        {
+          "id": "472951966",
+          "title": "ВТБ Онлайн",
+          "aliases": "VTB Online"
+        }
+      ]
+    },
+    {
+      "key": "gazprombank",
+      "title": "Газпромбанк",
+      "aliases": "ГПБ Gazprombank",
+      "releases": [
+        {
+          "id": "1406492297",
+          "title": "Телекард 2.0",
+          "aliases": "Telecard Газпромбанк"
+        }
+      ]
+    },
+    {
+      "key": "avito",
+      "title": "Авито",
+      "aliases": "Avito",
+      "releases": [
+        {
+          "id": "417281773",
+          "title": "Авито",
+          "aliases": "Avito"
+        }
+      ]
+    },
+    {
+      "key": "yandex-pay",
+      "title": "Яндекс Пэй",
+      "aliases": "Яндекс Пей Yandex Pay",
+      "releases": [
+        {
+          "id": "1634422317",
+          "title": "Яндекс Пэй",
+          "aliases": "Yandex Pay"
+        }
+      ]
+    },
+    {
+      "key": "mail",
+      "title": "Почта Mail",
+      "aliases": "Почта Mail.ru Mail.ru",
+      "releases": [
+        {
+          "id": "511310430",
+          "title": "Почта Mail.ru",
+          "aliases": "Почта Mail"
+        }
+      ]
+    },
+    {
+      "key": "kuper",
+      "title": "Купер",
+      "aliases": "Сбермаркет Kuper SberMarket",
+      "releases": [
+        {
+          "id": "6446631659",
+          "title": "Купер",
+          "aliases": "Супермаркет СберМаркет"
+        }
+      ]
+    },
+    {
+      "key": "yandex-music",
+      "title": "Яндекс Музыка",
+      "aliases": "Yandex Music",
+      "releases": [
+        {
+          "id": "520797969",
+          "title": "Яндекс Музыка",
+          "aliases": "Yandex Music"
+        }
+      ]
+    },
+    {
+      "key": "whatsapp",
+      "title": "WhatsApp",
+      "aliases": "Вотсап Ватсап WhatsApp Messenger",
+      "releases": [
+        {
+          "id": "310633997",
+          "title": "WhatsApp",
+          "aliases": "Вотсап Ватсап WhatsApp Messenger"
+        }
+      ]
+    },
+    {
+      "key": "fortnite",
+      "title": "Fortnite",
+      "aliases": "Фортнайт Epic Games",
+      "releases": [
+        {
+          "id": "6483539426",
+          "title": "Fortnite",
+          "aliases": "Фортнайт Epic Games"
+        },
+        {
+          "id": "1261357853",
+          "title": "Fortnite (2018)",
+          "aliases": "Фортнайт"
+        }
+      ],
+      "publisher": {
+        "label": "Версия из Epic Games Store",
+        "url": "https://www.fortnite.com/mobile/ios?lang=ru",
+        "condition": "Нужно находиться в ЕС и использовать Apple Account с регионом ЕС. Для игры нужен iPhone 11 или новее с 4 ГБ памяти и iOS 17.6.1 или новее. iPhone SE 2-го поколения не поддерживается.",
+        "regions": [
+          "es"
+        ]
+      }
+    }
+  ],
+  "regions": {
+    "ru": {
+      "310633997": "WhatsApp Messenger",
+      "520797969": "Яндекс Музыка, книги, подкасты",
+      "6483539426": "Fortnite"
+    },
+    "es": {
+      "310633997": "WhatsApp Messenger",
+      "6483539426": "Fortnite"
+    }
+  },
+  "checkedAt": "2026-11-27"
+}

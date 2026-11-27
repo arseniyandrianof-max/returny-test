@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#faf9fc">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://itunes.apple.com; base-uri 'none'; form-action 'none'">
+  <title>Найти приложение · returny</title>
+  <link rel="icon" href="./icons/returny.png">
+  <link rel="stylesheet" href="./app.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="wordmark" href="./" aria-label="returny, на главную">
+        <img src="./icons/returny.png" width="32" height="32" alt="">returny
+      </a>
+      <label class="region"><span>App Store</span>
+        <select id="region" aria-label="Страна App Store">
+          <option value="ru">Россия</option>
+          <option value="es">Испания</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main>
+    <h1>Найти приложение</h1>
+    <form id="finder" role="search" autocomplete="off">
+      <label for="query" class="sr-only">Название, ссылка App Store или числовой ID</label>
+      <span class="magnifier" aria-hidden="true"></span>
+      <input id="query" type="search" maxlength="400" placeholder="Название, ссылка или ID" enterkeyhint="search" autocapitalize="off" spellcheck="false">
+      <button class="find" type="submit" aria-label="Найти приложение"><span aria-hidden="true">→</span></button>
+    </form>
+    <p id="notice" class="notice" role="status">Загружаем каталог…</p>
+    <div id="panel"></div>
+    <noscript>Включите JavaScript, чтобы пользоваться поиском.</noscript>
+  </main>
+</body>
+</html>
